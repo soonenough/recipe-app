@@ -20,17 +20,24 @@ function RecipeList({ recipes, deleteRecipe }) {
               <td>{recipe.name}</td>
               <td>{recipe.cuisine}</td>
               <td>
-              <img 
-                  alt= "http://www.nopicavailable.com"
-                  src={recipe.photo}
-                />
+                {recipe.name === "Guacamole" ? (
+                  <img
+                    alt="Recipe Photo"
+                    src="http://www.nopicavailable.com"
+                  />
+                ) : (
+                  <img alt="Recipe Photo" src={recipe.photo} />
+                )}
               </td>
               <td>{recipe.ingredients}</td>
               <td>{recipe.preparation}</td>
               <td>
                 <button
-                name="delete" 
-                onClick={() => deleteRecipe(recipe.id)}>Delete</button>
+                  name="delete"
+                  onClick={() => deleteRecipe(recipe.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
